@@ -7,9 +7,9 @@ sName = input("Enter first and last name: ").title() #1
 sInitials = sName[0] + sName[sName.find(" ") + 1] #4
 sPassword = ""
 
-bLength = bPass = bInitials = bUpper = bLower = bDigit = bSpecial = bCount = False
+bIsValid = bLength = bPass = bInitials = bUpper = bLower = bDigit = bSpecial = bCount = False
 
-while True: #2
+while not bIsValid: #2
     dictCharacters = {}
     sPassword = input("Enter Password: ") #3
     if not sPassword: break
@@ -32,6 +32,6 @@ while True: #2
     if not bSpecial: print("Password must contain at least 1 of these special characters: ! @ # $ % ^ ") #10
     bCount = True if not bool(dictCharacters) else print(f"These characters occur twice:\n{dictCharacters}") #12
 
-    if bLength and bPass and bInitials and bUpper and bLower and bDigit and bSpecial and bCount: break
+    if bLength and bPass and bInitials and bUpper and bLower and bDigit and bSpecial and bCount: bIsValid = True
 print(f"\nName: {sName}\nInitails: {sInitials}\nPassword: {sPassword}")
 print("Password is valid and OK to use\n")
