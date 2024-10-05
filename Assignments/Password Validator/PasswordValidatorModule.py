@@ -42,4 +42,4 @@ def validatePassword(sInitials:str)->str:
 
         if bLength and bPass and bInitials and bUpper and bLower and bDigit and bSpecial and bCount: bIsValid = True
     return (sPassword)
-main()
+#main()
