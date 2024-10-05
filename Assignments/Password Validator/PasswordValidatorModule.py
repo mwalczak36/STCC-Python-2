@@ -31,7 +31,7 @@ def validatePassword(sInitials:str)->str:
             if char.islower():   bLower = True
             if char.isdigit():   bDigit = True
             if char in "!@#$%^": bSpecial = True
-            iCount = sPassword.count(char.lower())
+            iCount = sPassword.lower().count(char.lower())
             if iCount > 1: dictCharacters[char.lower()] = iCount
 
         if not bUpper: print("Password must contain at least 1 uppercase letter.") #7
