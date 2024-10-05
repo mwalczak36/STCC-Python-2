@@ -28,9 +28,9 @@ def validatePassword(sInitials:str)->str:
 
         for char in sPassword:
             if char.isupper():   bUpper = True
-            if char.islower():   bLower = True
-            if char.isdigit():   bDigit = True
-            if char in "!@#$%^": bSpecial = True
+            elif char.islower():   bLower = True
+            elif char.isdigit():   bDigit = True
+            elif char in "!@#$%^": bSpecial = True
             iCount = sPassword.lower().count(char.lower())
             if iCount > 1: dictCharacters[char.lower()] = iCount
 
@@ -42,4 +42,4 @@ def validatePassword(sInitials:str)->str:
 
         if bLength and bPass and bInitials and bUpper and bLower and bDigit and bSpecial and bCount: bIsValid = True
     return (sPassword)
-#main()
+main()
