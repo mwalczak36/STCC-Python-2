@@ -14,7 +14,7 @@ def getName()->tuple[str, str]:
     sInitials = sName[0] + sName[sName.find(" ")+1]
     return (sName, sInitials)
 
-def validatePassword(sInitials:str)->str:
+def validatePassword(sInitials:str)->tuple[str]:
     sPassword = ""
     bIsValid = False
     while not bIsValid:
