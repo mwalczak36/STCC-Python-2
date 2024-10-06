@@ -5,8 +5,6 @@
 def main():
     sName, sInitials = getName()
     sPassword = validatePassword(sInitials)
-    print("\nPassword is valid and OK to use")
-    print(f"Name: {sName}\nInitials: {sInitials}\nPassword: {sPassword}\n")
 
 def getName()->tuple[str, str]:
     sName = sInitials = ""
@@ -41,5 +39,6 @@ def validatePassword(sInitials:str)->tuple[str]:
         bCount = True if not dictCharacters else print(f"These characters occur twice:\n{dictCharacters}") #12
 
         if bLength and bPass and bInitials and bUpper and bLower and bDigit and bSpecial and bCount: bIsValid = True
+    print("Password is valid and OK to use")
     return (sPassword)
 #main()
