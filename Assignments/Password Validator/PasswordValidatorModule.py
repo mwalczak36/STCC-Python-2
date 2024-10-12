@@ -2,10 +2,6 @@
 #Author: Michael Walczak
 #Password Validator Module
 
-def main():
-    sName, sInitials = getName()
-    sPassword = validatePassword(sInitials)
-
 def getName()->tuple[str, str]:
     sName = sInitials = ""
     sName = input("Enter first and last name: ").title()
@@ -40,5 +36,4 @@ def validatePassword(sInitials:str)->tuple[str]:
 
         if bLength and bPass and bInitials and bUpper and bLower and bDigit and bSpecial and bCount: bIsValid = True
     print("Password is valid and OK to use")
-    return (sPassword)
-#main()
+    return (sPassword,)
