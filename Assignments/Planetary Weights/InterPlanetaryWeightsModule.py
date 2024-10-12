@@ -2,6 +2,7 @@
 #Author: Michael Walczak
 #Inter Planetary Weights Module
 import pickle
+
 def loadDictionary(sFileName:str)->tuple[dict]:
     dictPlanetHistory = {}
     try:
