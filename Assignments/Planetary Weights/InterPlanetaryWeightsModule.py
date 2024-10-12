@@ -13,7 +13,7 @@ def loadDictionary(sFileName:str)->tuple[dict]:
             print(f"\n{name}, here are your weights on Solar System's planets")
             for planet, weight in dictWeights.items():
                 print(f"Weight on {planet:10s} {weight:10,.2f}")
-    return (dictPlanetHistory)
+    return (dictPlanetHistory,)
 
 def validateNumericInput(sPrompt:str, bAllowZero:bool = False)->tuple[float, bool]:
     fNumber = -1
