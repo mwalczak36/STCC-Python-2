@@ -34,7 +34,7 @@ def getEntrys(dictPlanetHistory:dict):
         "Saturn"  :0.93, 
         "Uranus"  :0.92, 
         "Neptune" :1.12, 
-        "Pluto"   :0.066,
+        "Pluto"   :0.066
     }
 
     while True: #5
