@@ -32,7 +32,7 @@ def validatePassword(sInitials:str)->tuple[str]:
         if not bLower: print("Password must contain at least 1 lowercase letter.") #8
         if not bDigit: print("Password must contain at least 1 number.") #9
         if not bSpecial: print("Password must contain at least 1 of these special characters: ! @ # $ % ^ ") #10
-        bCount = True if not dictCharacters else print(f"These characters occur twice:\n{dictCharacters}") #12
+        bCount = True if not dictCharacters else print(f"These characters occur more then once:\n{dictCharacters}") #12
 
         if bLength and bPass and bInitials and bUpper and bLower and bDigit and bSpecial and bCount: bIsValid = True
     print("Password is valid and OK to use")
