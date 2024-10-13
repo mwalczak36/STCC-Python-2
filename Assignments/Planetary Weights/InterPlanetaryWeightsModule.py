@@ -1,6 +1,7 @@
 #Date: 10/9/24
 #Author: Michael Walczak
 #Inter Planetary Weights Module
+
 import pickle
 
 def loadDictionary(sFileName:str)->tuple[dict]:
