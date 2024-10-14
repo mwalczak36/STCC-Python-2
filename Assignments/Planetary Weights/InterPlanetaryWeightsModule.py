@@ -24,7 +24,7 @@ def validateNumericInput(sPrompt:str, bAllowZero:bool = False)->tuple[float, boo
         except ValueError: print("Invalid input.")
     return (fNumber, bAllowZero)
 
-def getEntrys(dictPlanetHistory:dict):
+def getEntrys(dictPlanetHistory:dict, sFileName:str):
 
     dictPlanetWeightFactors = { #2
 
@@ -46,4 +46,4 @@ def getEntrys(dictPlanetHistory:dict):
         fWeight = validateNumericInput("Enter Weight: ")[0]
         dictPlanetHistory[sName] = {planet : fWeight * factor for planet, factor in dictPlanetWeightFactors.items()}
 
-    with open("mwPlanetaryWeights.db", "wb") as file: pickle.dump(dictPlanetHistory, file) #6
+    with open(sFileName, "wb") as file: pickle.dump(dictPlanetHistory, file) #6
