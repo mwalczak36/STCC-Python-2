@@ -24,7 +24,7 @@ def validateNumericInput(sPrompt:str, bAllowZero:bool = False)->tuple[float, boo
         except ValueError: print("Invalid input.")
     return (fNumber, bAllowZero)
 
-def getEntrys(dictPlanetHistory:dict, sFileName:str):
+def getEntrys(dictPlanetHistory:dict, sFileName:str = "Planetary_Weights.db"):
 
     dictPlanetWeightFactors = { #2
 
