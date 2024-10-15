@@ -4,8 +4,11 @@
 
 import pickle
 
-def loadDictionary(sFileName:str)->tuple[dict]:
-    dictPlanetHistory = {}
+sFileName = "Planetary_Weights.db"
+dictPlanetHistory = {}
+
+def loadDictionary(dictPlanetHistory:dict = dictPlanetHistory, sFileName:str = sFileName)->tuple[dict, str]:
+    #dictPlanetHistory = {}
     try:
         with open(sFileName, "rb") as file: dictPlanetHistory = pickle.load(file) #3
     except: print("No file found")
@@ -15,16 +18,16 @@ def loadDictionary(sFileName:str)->tuple[dict]:
             print(f"\n{name}, here are your weights on Solar System's planets")
             for planet, weight in dictWeights.items():
                 print(f"Weight on {planet:10s} {weight:10,.2f}") #7
-    return (dictPlanetHistory,)
+    return (dictPlanetHistory, sFileName)
 
-def validateNumericInput(sPrompt:str, bAllowZero:bool = False)->tuple[float, bool]:
+def validateNumericInput(sPrompt:str = "Enter Number: ", bAllowZero:bool = False)->tuple[float, bool]:
     fNumber = -1
     while (bAllowZero and fNumber < 0) or (not bAllowZero and fNumber <= 0):
         try: fNumber = float(input(sPrompt))
         except ValueError: print("Invalid input.")
     return (fNumber, bAllowZero)
 
-def getEntrys(dictPlanetHistory:dict, sFileName:str = "Planetary_Weights.db"):
+def getEntrys(dictPlanetHistory:dict = dictPlanetHistory, sFileName:str = sFileName)->None:
 
     dictPlanetWeightFactors = { #2
 
