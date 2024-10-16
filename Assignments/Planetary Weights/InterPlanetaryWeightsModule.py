@@ -4,11 +4,8 @@
 
 import pickle
 
-sFileName = "Planetary_Weights.db"
-dictPlanetHistory = {}
-
-def loadDictionary(dictPlanetHistory:dict = dictPlanetHistory, sFileName:str = sFileName)->tuple[dict, str]:
-    #dictPlanetHistory = {}
+def loadDictionary(sFileName:str = "Planetary_Weights.db")->tuple[dict, str]:
+    dictPlanetHistory = {}
     try:
         with open(sFileName, "rb") as file: dictPlanetHistory = pickle.load(file) #3
     except: print("No file found")
@@ -27,7 +24,7 @@ def validateNumericInput(sPrompt:str = "Enter Number: ", bAllowZero:bool = False
         except ValueError: print("Invalid input.")
     return (fNumber, bAllowZero)
 
-def getEntrys(dictPlanetHistory:dict = dictPlanetHistory, sFileName:str = sFileName)->None:
+def getEntrys(dictPlanetHistory:dict, sFileName:str = "Planetary_Weights.db"):
 
     dictPlanetWeightFactors = { #2
 
