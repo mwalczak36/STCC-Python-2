@@ -25,7 +25,7 @@ def validateNumericInput(sPrompt:str = "Enter Number: ", bAllowZero:bool = False
         except ValueError: print("Invalid input.")
     return (fNumber, bAllowZero)
 
-def getEntrys(dictPlanetHistory:dict = {}, sFileName:str = "Planetary_Weights.db"):
+def getEntrys(dictPlanetHistory:dict = {}, sFileName:str = "Planetary_Weights.db")->None:
 
     dictPlanetWeightFactors = { #2
 
