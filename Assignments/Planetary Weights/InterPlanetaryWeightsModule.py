@@ -8,13 +8,14 @@ def loadDictionary(sFileName:str = "Planetary_Weights.db")->tuple[dict, str]:
     dictPlanetHistory = {}
     try:
         with open(sFileName, "rb") as file: dictPlanetHistory = pickle.load(file) #3
-    except: print("No file found")
-    if input("Would you like to see the history? y/n: ").lower() == "y": #4
-        dictWeights:dict
-        for name, dictWeights in dictPlanetHistory.items():
-            print(f"\n{name}, here are your weights on Solar System's planets")
-            for planet, weight in dictWeights.items():
-                print(f"Weight on {planet:10s} {weight:10,.2f}") #7
+        if input("Would you like to see the history? y/n: ").lower() == "y": #4
+            dictPlanetHistory:dict
+            dictWeights:dict
+            for name, dictWeights in dictPlanetHistory.items():
+                print(f"{name}, here are your weights on Solar System's planets")
+                for planet, weight in dictWeights.items():
+                    print(f"Weight on {planet:10s} {weight:10,.2f}") #7
+    except: pass
     return (dictPlanetHistory, sFileName)
 
 def validateNumericInput(sPrompt:str = "Enter Number: ", bAllowZero:bool = False)->tuple[float, bool]:
@@ -24,7 +25,7 @@ def validateNumericInput(sPrompt:str = "Enter Number: ", bAllowZero:bool = False
         except ValueError: print("Invalid input.")
     return (fNumber, bAllowZero)
 
-def getEntrys(dictPlanetHistory:dict, sFileName:str = "Planetary_Weights.db"):
+def getEntrys(dictPlanetHistory:dict = {}, sFileName:str = "Planetary_Weights.db"):
 
     dictPlanetWeightFactors = { #2
 
@@ -44,6 +45,12 @@ def getEntrys(dictPlanetHistory:dict, sFileName:str = "Planetary_Weights.db"):
         if not sName: break
         if sName in dictPlanetHistory: continue
         fWeight = validateNumericInput("Enter Weight: ")[0]
-        dictPlanetHistory[sName] = {planet : fWeight * factor for planet, factor in dictPlanetWeightFactors.items()}
+        dictPersonWeights = {}
+        print(f"{sName}, here are your weights on our Solar System's planets")
+        for planet, factor in dictPlanetWeightFactors.items():
+            fCalculatedWeight = fWeight * factor
+            dictPersonWeights[planet] = fCalculatedWeight
+            print(f"{planet:10s}{fCalculatedWeight:10,.2f}")
+        dictPlanetHistory[sName] = dictPersonWeights
 
     with open(sFileName, "wb") as file: pickle.dump(dictPlanetHistory, file) #6
