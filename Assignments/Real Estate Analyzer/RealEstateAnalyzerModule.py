@@ -11,6 +11,17 @@ def getDataInput(sFileName:str)->tuple[list, list[list]]:
         lstData = [row for row in reader]
     return (lstHeader, lstData)
 
+def getMedian(lstListOfNumbers:list)->float:
+
+    lstListOfNumbers.sort()
+    iListLength = len(lstListOfNumbers)
+
+    if iListLength % 2 == 0: fMedian = (lstListOfNumbers[(iListLength // 2) - 1] + lstListOfNumbers[iListLength // 2]) / 2
+    
+    else: fMedian = lstListOfNumbers[iListLength // 2]
+
+    return fMedian
+
 def main():
     
     lstHeader, lstData = getDataInput("RealEstateData.csv")
