@@ -18,7 +18,7 @@ class Numerology:
                                  ("H", "Q", "Z"):8,
                                  ("I", "R")     :9}
 
-    def reduceNumberDecorator(func):
+    def _reduceNumberDecorator(func):
         def wrapper(self):
             iResult:int = func(self)
             def reduceNumber(iNumber:int):
@@ -35,22 +35,22 @@ class Numerology:
         self.__sDOB = sDOB
         self.__nDOB = sDOB.replace("-", "").replace("/", "")
     
-    @reduceNumberDecorator
+    @_reduceNumberDecorator
     def getLifePath(self)->int: return sum(int(sNum) for sNum in self.__nDOB)
 
-    @reduceNumberDecorator
+    @_reduceNumberDecorator
     def getBirthDay(self)->int: return sum(int(digit) for digit in self.__nDOB[2:4])
 
-    @reduceNumberDecorator
+    @_reduceNumberDecorator
     def getAttitude(self)->int: return sum(int(digit) for digit in self.__nDOB[:4])
     
-    @reduceNumberDecorator
+    @_reduceNumberDecorator
     def getSoul(self)->int: return sum(value for sLetter in self.getName().upper() if sLetter in "AEIOU" for key, value in self.__dictCharacters.items() if sLetter in key)
     
-    @reduceNumberDecorator
+    @_reduceNumberDecorator
     def getPersonality(self)->int: return sum(value for sLetter in self.getName().upper() if sLetter not in "AEIOU" for key, value in self.__dictCharacters.items() if sLetter in key)
     
-    @reduceNumberDecorator
+    @_reduceNumberDecorator
     def getPower(self)->int: return self.getSoul() + self.getPersonality()
 
     Name = property(fget = getName,
