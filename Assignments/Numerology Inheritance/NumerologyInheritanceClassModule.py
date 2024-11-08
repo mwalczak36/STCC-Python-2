@@ -39,7 +39,7 @@ class Numerology:
     @DOB.setter
     def DOB(self, sDOB:str)->None: 
         self.__sDOB = sDOB
-        self.__nDOB = sDOB.replace("-", "").replace("/", "") # 03101995
+        self.__nDOB = sDOB.replace("-", "").replace("/", "")
     
     @_reduceNumberDecorator
     def _getLifePath(self)->int: return sum(int(sNum) for sNum in self.__nDOB)
