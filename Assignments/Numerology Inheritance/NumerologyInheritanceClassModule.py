@@ -59,6 +59,16 @@ class Numerology:
     @_reduceNumberDecorator
     def _getPower(self)->int: return self._getSoul() + self._getPersonality()
 
+    def __str__(self): return \
+        f"\n{'Name: ':25s}{self.Name}\
+        \n{'DOB: ':25s}{self.DOB}\
+        \n{'Life Path: ':25s}{self._getLifePath()}\
+        \n{'Birth Day: ':25s}{self._getBirthDay()}\
+        \n{'Attitude: ':25s}{self._getAttitude()}\
+        \n{'Soul: ':25s}{self._getSoul()}\
+        \n{'Personality: ':25s}{self._getPersonality()}\
+        \n{'Power: ':25s}{self._getPower()}"
+
 
 class NumerologyExtended(Numerology):
     
@@ -66,7 +76,7 @@ class NumerologyExtended(Numerology):
 
         Numerology.__init__(self, sName, sDOB)
 
-        self.__life_path_descriptions = {
+        self.__lifePathDescriptions = {
 
             1: "The Independent: Wants to work/think for themselves",
             2: "The Mediator: Avoids conflict and wants love and harmony",
@@ -78,15 +88,8 @@ class NumerologyExtended(Numerology):
             8: "The Executive: Gravitates to money and power",
             9: "The Humanitarian: Helps others and/or experiences pain and learns the hard way"}
 
-    def _getLifePathDescription(self)->str: return self.__life_path_descriptions.get(self._getLifePath())
+    def _getLifePathDescription(self)->str: return self.__lifePathDescriptions.get(self._getLifePath())
 
     def __str__(self): return \
-        f"\n{'Name: ':25s}{self.Name}\
-        \n{'DOB: ':25s}{self.DOB}\
-        \n{'Life Path: ':25s}{self._getLifePath()}\
-        \n{'Birth Day: ':25s}{self._getBirthDay()}\
-        \n{'Attitude: ':25s}{self._getAttitude()}\
-        \n{'Soul: ':25s}{self._getSoul()}\
-        \n{'Personality: ':25s}{self._getPersonality()}\
-        \n{'Power: ':25s}{self._getPower()}\
+        f"{Numerology.__str__(self)}\
         \n{'Life Path Description: ':25s}{self._getLifePathDescription()}\n"
