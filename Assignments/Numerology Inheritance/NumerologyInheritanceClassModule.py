@@ -59,7 +59,7 @@ class Numerology:
     @_reduceNumberDecorator
     def _getPower(self)->int: return self._getSoul() + self._getPersonality()
 
-    def __str__(self): return \
+    def __str__(self)->str: return \
         f"\n{'Name: ':25s}{self.Name}\
         \n{'DOB: ':25s}{self.DOB}\
         \n{'Life Path: ':25s}{self._getLifePath()}\
@@ -90,6 +90,6 @@ class NumerologyExtended(Numerology):
 
     def _getLifePathDescription(self)->str: return self.__lifePathDescriptions.get(self._getLifePath())
 
-    def __str__(self): return \
+    def __str__(self)->str: return \
         f"{Numerology.__str__(self)}\
         \n{'Life Path Description: ':25s}{self._getLifePathDescription()}\n"
