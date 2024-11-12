@@ -21,7 +21,7 @@ class Numerology:
     def _reduceNumberDecorator(func):
         def wrapper(self):
             iResult:int = func(self)
-            def reduceNumber(iNumber:int):
+            def reduceNumber(iNumber:int)->int:
                 if iNumber < 10: return iNumber
                 return reduceNumber(sum(int(digit) for digit in str(iNumber)))
             return reduceNumber(iResult)
