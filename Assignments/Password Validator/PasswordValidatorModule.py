@@ -25,6 +25,7 @@ def validatePassword(sInitials:str)->tuple[str]:
             elif char.islower():   bLower = True
             elif char.isdigit():   bDigit = True
             elif char in "!@#$%^": bSpecial = True
+            if char in dictCharacters: continue
             iCount = sPassword.lower().count(char.lower())
             if iCount > 1: dictCharacters[char.lower()] = iCount
 
